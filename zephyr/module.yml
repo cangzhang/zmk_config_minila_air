@@ -1,3 +1,5 @@
+name: zmk-keyboard-minila_air
+
 build:
   settings:
     board_root: .
