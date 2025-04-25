@@ -1,4 +1,3 @@
-/* boards/shields/minila_air/minila_air.overlay */
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {

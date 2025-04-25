@@ -1,2 +1,0 @@
-config SHIELD_MINILA_AIR
-    def_bool $(shields_list_contains, minila_air)

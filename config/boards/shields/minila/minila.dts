@@ -3,7 +3,7 @@
 
     kb: keyboard {
         compatible = "zmk,keyboard";
-        label = "MinilaAir";
+        label = "minila";
 
         matrix {
             rows = <8>;

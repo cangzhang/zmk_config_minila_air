@@ -1,4 +1,4 @@
-/* config/minila_air.keymap */
+
  / {
     keymap {
         compatible = "zmk,keymap";
