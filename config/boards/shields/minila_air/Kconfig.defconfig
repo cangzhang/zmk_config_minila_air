@@ -1,0 +1,6 @@
+if SHIELD_MINILA_AIR
+
+config ZMK_KEYBOARD_NAME
+    default "minila_air"
+
+endif
