@@ -1,41 +1,42 @@
-/ {
-    keymap {
-        compatible = "zmk,keymap";
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
 
-        default_layer {
-            bindings = <
-                /* R0: C0–C15 */
-                &kp Q       &kp W       &kp E       &kp R       &kp U       &kp I       &kp O       &kp P
-                &none       &kp GRAVE   &none       &none       &none       &none       &none       &none
+&keymap {
+    compatible = "zmk,keymap";
 
-                /* R1: C0–C15 */
-                &kp TAB     &kp CAPS    &kp T       &kp Y       &kp RBRC    &kp LBRC    &kp BSPC    &kp LGUI
-                &kp LSHIFT  &none       &none       &none       &none       &none       &none       &none
+    default_layer {
+        bindings = <
+            /* R0: C0–C15 */
+            &kp Q       &kp W       &kp E       &kp R       &kp U       &kp I       &kp O       &kp P
+            &none       &kp GRAVE   &none       &none       &none       &none       &none       &none
 
-                /* R2: C0–C15 */
-                &kp A       &kp S       &kp D       &kp F       &kp J       &kp K       &kp L       &kp SCLN
-                &none       &kp RSHIFT  &none       &none       &none       &none       &none       &none
+            /* R1: C0–C15 */
+            &kp TAB     &kp CAPS    &kp T       &kp Y       &kp RBRC    &kp LBRC    &kp BSPC    &kp LGUI
+            &kp LSHIFT  &none       &none       &none       &none       &none       &none       &none
 
-                /* R3: C0–C15 */
-                &kp ESC     &kp G       &kp H       &kp APOST   &kp LALT    &kp ENTER   &kp SPACE   &kp UP
-                &none       &none       &none       &none       &none       &none       &none       &none
+            /* R2: C0–C15 */
+            &kp A       &kp S       &kp D       &kp F       &kp J       &kp K       &kp L       &kp SCLN
+            &none       &kp RSHIFT  &none       &none       &none       &none       &none       &none
 
-                /* R4: C0–C15 */
-                &kp Z       &kp X       &kp C       &kp V       &kp M       &kp COMMA   &kp DOT     &none
-                &none       &none       &none       &none       &none       &none       &none       &none
+            /* R3: C0–C15 */
+            &kp ESC     &kp G       &kp H       &kp APOST   &kp LALT    &kp ENTER   &kp SPACE   &kp UP
+            &none       &none       &none       &none       &none       &none       &none       &none
 
-                /* R5: C0–C15 */
-                &kp B       &kp N       &kp SLASH   &kp RALT    &kp DOWN    &kp RIGHT   &kp MENU    &kp LEFT
-                &none       &none       &none       &none       &none       &none       &none       &none
+            /* R4: C0–C15 */
+            &kp Z       &kp X       &kp C       &kp V       &kp M       &kp COMMA   &kp DOT     &none
+            &none       &none       &none       &none       &none       &none       &none       &none
 
-                /* R6: C0–C15 */
-                &kp LCTRL   &kp BSLS    &kp 5       &kp 6       &kp EQUAL   &kp MINUS   &none       &none
-                &none       &none       &none       &none       &none       &none       &none       &none
+            /* R5: C0–C15 */
+            &kp B       &kp N       &kp SLASH   &kp RALT    &kp DOWN    &kp RIGHT   &kp MENU    &kp LEFT
+            &none       &none       &none       &none       &none       &none       &none       &none
 
-                /* R7: C0–C15 */
-                &kp 1       &kp 2       &kp 3       &kp 4       &kp 7       &kp 8       &kp 9       &kp 0
-                &none       &none       &none       &none       &none       &none       &none       &none
-            >;
-        };
+            /* R6: C0–C15 */
+            &kp LCTRL   &kp BSLS    &kp 5       &kp 6       &kp EQUAL   &kp MINUS   &none       &none
+            &none       &none       &none       &none       &none       &none       &none       &none
+
+            /* R7: C0–C15 */
+            &kp 1       &kp 2       &kp 3       &kp 4       &kp 7       &kp 8       &kp 9       &kp 0
+            &none       &none       &none       &none       &none       &none       &none       &none
+        >;
     };
 };
