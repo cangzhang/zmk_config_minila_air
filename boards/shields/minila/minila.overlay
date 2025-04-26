@@ -10,9 +10,3 @@
     };
 };
 
-/* Override 74HC595 control pins if needed */
-&sr595 {
-    ser-gpios   = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-    srclk-gpios = <&gpio0  2 GPIO_ACTIVE_HIGH>;
-    rclk-gpios  = <&gpio0 29 GPIO_ACTIVE_HIGH>;
-};
