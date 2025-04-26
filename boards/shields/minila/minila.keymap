@@ -15,7 +15,7 @@
                 &kp ESC  &kp G    &kp H    &kp QUOT &kp LALT &kp ENT  &kp SPC  &kp UP   &none    &none   &none   &none   &none   &none   &none   &none
                 &kp Z    &kp X    &kp C    &kp V    &kp M    &kp COMMA &kp DOT  &none   &none    &none   &none   &none   &none   &none   &none   &none
                 &kp B    &kp N    &kp SLSH &kp RALT &kp DOWN &kp RGHT &kp APP  &kp LFT  &none    &none   &none   &none   &none   &none   &none   &none
-                &kp LCTL &kp BSLS &kp 5    &kp 6    &kp PLUS &kp EQL  &kp MINUS &kp NONE &none    &none   &none   &none   &none   &none   &none   &none
+                &kp LCTL &kp BSLS &kp 5    &kp 6    &kp PLUS &kp EQL  &kp MINUS &none &none    &none   &none   &none   &none   &none   &none   &none
                 &kp 1    &kp 2    &kp 3    &kp 4    &kp 7    &kp 8    &kp 9    &kp 0   &none    &none   &none   &none   &none   &none   &none   &none
             >;
         };
