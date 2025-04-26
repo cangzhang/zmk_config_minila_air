@@ -1,4 +1,12 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include "matrix_transform.dtsi"
+
 / {
+     chosen {
+         zmk,keyboard         = &kb;
+         zmk,matrix_transform = &transform;   /* ← 恢复这一行 */
+     };
+
     /* Shift-Register 控制 (SN74HC595) */
     shifter: shift_register {
         compatible = "zmk,74hc595";
