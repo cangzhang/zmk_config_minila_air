@@ -1,7 +1,3 @@
-/ * boards/shields/minila/minila.overlay
- * Shield‑specific overlay for Minila‑Air
- */
-
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
