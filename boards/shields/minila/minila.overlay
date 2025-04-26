@@ -4,8 +4,8 @@
         compatible = "zmk,74hc595";
         /* 顺序：〈latch, clock, data〉 */
         gpios = 
-            <&gpio0 2  GPIO_ACTIVE_LOW>  /* RCLK (latch) – SR2  = P0.02 */ 
-            <&gpio1 15 GPIO_ACTIVE_LOW>  /* SRCLK (clock) – SR1 = P1.15 */
+            <&gpio0 2  GPIO_ACTIVE_LOW>,  /* RCLK (latch) – SR2  = P0.02 */ 
+            <&gpio1 15 GPIO_ACTIVE_LOW>, /* SRCLK (clock) – SR1 = P1.15 */
             <&gpio1 13 GPIO_ACTIVE_LOW>; /* SER (data) – SR0   = P1.13 */
         /* 如果需要，控制位序：0 = Q0 最先推送，7 = Q7 最后 */
         data-order = <0>;
