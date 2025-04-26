@@ -11,37 +11,37 @@
             bindings = <
                 /* Row 0, C0–C15: Q  W  E  R  U  I  O  P  FN  `   空×6 */
                 &kp Q    &kp W    &kp E    &kp R    &kp U    &kp I    &kp O  
-                &kp P    &mo FN   &kp GRV  &none   &none   &none   &none   &none
+                &kp P    &mo FN   &kp GRV  &trans   &trans   &trans   &trans   &trans
 
                 /* Row 1: Tab  Caps  T   Y   ]   [  Back Win  LShift 空×6 */
                 &kp TAB  &kp CAPS &kp T    &kp Y    &kp RCBR &kp LCBR 
-                &kp BSPC &kp LGUI &kp LSFT &none   &none   &none   &none   &none
+                &kp BSPC &kp LGUI &kp LSFT &trans   &trans   &trans   &trans   &trans
 
                 /* Row 2: A   S   D   F   J   K   L   ;   FN  RShift 空×6 */
                 &kp A    &kp S    &kp D    &kp F    &kp J    &kp K    
-                &kp L    &kp SCLN &mo FN   &kp RSFT &none   &none   &none   &none
+                &kp L    &kp SCLN &mo FN   &kp RSFT &trans   &trans   &trans   &trans
 
                 /* Row 3: Esc  G   H   '   LAlt  Enter  Space  Up  空×8 */
                 &kp ESC  &kp G    &kp H    &kp QUOT &kp LALT &kp ENT  
-                &kp SPC  &kp UP   &none   &none   &none   &none   &none   &none
+                &kp SPC  &kp UP   &trans   &trans   &trans   &trans   &trans   &trans
 
                 /* Row 4: Z    X    C    V    M    ,     .     空×9 */
                 &kp Z    &kp X    &kp C    &kp V    &kp M    &kp COMMA &kp DOT  
-                &none   &none   &none   &none   &none   &none   &none   &none
-                &none
+                &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans
+                &trans
 
                 /* Row 5: B   N  /   RAlt  Down  Right  App  Left  空×8 */
                 &kp B    &kp N    &kp SLSH &kp RALT &kp DOWN &kp RGHT 
-                &kp APP  &kp LFT  &none   &none   &none   &none   &none   &none
+                &kp APP  &kp LFT  &trans   &trans   &trans   &trans   &trans   &trans
 
                 /* Row 6: LCtrl  \   5   6   +/=  =   -     空×9 */
                 &kp LCTL &kp BSLS &kp 5    &kp 6    &kp PLUS &kp EQL  
-                &kp MINUS &none   &none   &none   &none   &none   &none   &none
-                &none
+                &kp MINUS &trans   &trans   &trans   &trans   &trans   &trans   &trans
+                &trans
 
                 /* Row 7: 1   2   3   4   7   8   9   0   空×8 */
                 &kp 1    &kp 2    &kp 3    &kp 4    &kp 7    &kp 8    
-                &kp 9    &kp 0    &none   &none   &none   &none   &none   &none
+                &kp 9    &kp 0    &trans   &trans   &trans   &trans   &trans   &trans
             >;
         };
     };
