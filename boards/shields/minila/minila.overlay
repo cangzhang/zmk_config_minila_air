@@ -1,0 +1,21 @@
+/ * boards/shields/minila/minila.overlay
+ * Shield‑specific overlay for Minila‑Air
+ */
+
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        /* default keyboard node */
+        zmk,keyboard         = &kb;
+        /* logical‑to‑physical mapping lives in config/matrix_transform.dtsi */
+        zmk,matrix_transform = &transform;
+    };
+};
+
+/* Override 74HC595 control pins if needed */
+&sr595 {
+    ser-gpios   = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+    srclk-gpios = <&gpio0  2 GPIO_ACTIVE_HIGH>;
+    rclk-gpios  = <&gpio0 29 GPIO_ACTIVE_HIGH>;
+};
