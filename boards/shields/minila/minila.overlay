@@ -1,69 +1,7 @@
 /dts-v1/;
 
 / {
-    /* 指定使用的扫描器和变换器 */
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &matrix_transform_0;
-    };
-
-    /* 矩阵变换定义（8 行 × 16 列，物理与逻辑一一对应） */
-    matrix_transform_0: matrix_transform {
-        compatible = "zmk,matrix-transform";
-        rows = <8>;
-        cols = <16>;
-        row-map = <0 1 2 3 4 5 6 7>;
-        col-map = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15>;
-    };
-
-    /* 使能并配置 SPI1 驱动 74HC595 */
-    &spi1 {
-        status = "okay";
-        cs-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;  /* RCLK → P1.15 */
-        shifter: shifter@0 {
-            compatible = "zmk,gpio-595";
-            status = "okay";
-            gpio-controller;
-            spi-max-frequency = <200000>;
-            reg = <0>;
-            #gpio-cells = <2>;
-            ngpios = <8>;  /* QA–QH */
-        };
-    };
-
-    /* GPIO 矩阵扫描：行由 74HC595，列由 MCU 直接驱动 */
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
-
-        row-gpios = <
-            &shifter 0 GPIO_ACTIVE_HIGH  /* R0 → QA */
-            &shifter 1 GPIO_ACTIVE_HIGH  /* R1 → QB */
-            &shifter 2 GPIO_ACTIVE_HIGH  /* R2 → QC */
-            &shifter 3 GPIO_ACTIVE_HIGH  /* R3 → QD */
-            &shifter 4 GPIO_ACTIVE_HIGH  /* R4 → QE */
-            &shifter 5 GPIO_ACTIVE_HIGH  /* R5 → QF */
-            &shifter 6 GPIO_ACTIVE_HIGH  /* R6 → QG */
-            &shifter 7 GPIO_ACTIVE_HIGH  /* R7 → QH */
-        >;
-
-        col-gpios = <
-            &gpio1 1  GPIO_ACTIVE_HIGH   /* C0  → P1.01 */
-            &gpio1 2  GPIO_ACTIVE_HIGH   /* C1  → P1.02 */
-            &gpio1 7  GPIO_ACTIVE_HIGH   /* C2  → P1.07 */
-            &gpio0 9  GPIO_ACTIVE_HIGH   /* C3  → P0.09 */
-            &gpio0 10 GPIO_ACTIVE_HIGH   /* C4  → P0.10 */
-            &gpio1 11 GPIO_ACTIVE_HIGH   /* C5  → P1.11 */
-            &gpio1 6  GPIO_ACTIVE_HIGH   /* C6  → P1.06 */
-            &gpio1 4  GPIO_ACTIVE_HIGH   /* C7  → P1.04 */
-            &gpio0 11 GPIO_ACTIVE_HIGH   /* C8  → P0.11 */
-            &gpio1 0  GPIO_ACTIVE_HIGH   /* C9  → P1.00 */
-            &gpio0 24 GPIO_ACTIVE_HIGH   /* C10 → P0.24 */
-            &gpio0 22 GPIO_ACTIVE_HIGH   /* C11 → P0.22 */
-            &gpio0 20 GPIO_ACTIVE_HIGH   /* C12 → P0.20 */
-            &gpio0 6  GPIO_ACTIVE_HIGH   /* C13 → P0.06 */
-            &gpio0 17 GPIO_ACTIVE_HIGH   /* C14 → P0.17 */
-            &gpio0 8  GPIO_ACTIVE_HIGH   /* C15 → P0.08 */
-        >;
     };
 };
