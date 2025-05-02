@@ -1,38 +1,37 @@
-#include <dt-bindings/zmk/matrix_transform.h>
+/dts-v1/;
 
-& {
-    /* 将 kscan0 和 matrix_transform 一并注册到 chosen */
+/ {
+    /* 指定使用的扫描器和变换器 */
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &matrix_transform_0;
     };
 
-    /* 矩阵变换定义（原 matrix_transform.dtsi 的内容） */
+    /* 矩阵变换定义（8 行 × 16 列，物理与逻辑一一对应） */
     matrix_transform_0: matrix_transform {
         compatible = "zmk,matrix-transform";
         rows = <8>;
         cols = <16>;
-        /* 物理与逻辑一一对应 */
         row-map = <0 1 2 3 4 5 6 7>;
         col-map = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15>;
     };
 
-    /* 开启 SPI1，并在 CS（P1.15）上挂载 74HC595 驱动 */
+    /* 使能并配置 SPI1 驱动 74HC595 */
     &spi1 {
         status = "okay";
-        cs-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
+        cs-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;  /* RCLK → P1.15 */
         shifter: shifter@0 {
             compatible = "zmk,gpio-595";
             status = "okay";
             gpio-controller;
             spi-max-frequency = <200000>;
-            reg = <0>;            /* CS 线路索引 */
+            reg = <0>;
             #gpio-cells = <2>;
-            ngpios = <8>;         /* QA–QH */
+            ngpios = <8>;  /* QA–QH */
         };
     };
 
-    /* 定义矩阵扫描：行由 74HC595 输出，列由 MCU GPIO 直接驱动 */
+    /* GPIO 矩阵扫描：行由 74HC595，列由 MCU 直接驱动 */
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
