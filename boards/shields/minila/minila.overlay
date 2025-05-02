@@ -1,0 +1,63 @@
+#include <dt-bindings/boards/nice_nano_v2.dtsi>
+#include "matrix_transform.dtsi"
+
+/ {
+    /* 1. 使能 SPI1 总线（用于驱动 74HC595） */
+    &spi1 {
+        status = "okay";
+        /* RCLK 接到 P1.15，用作寄存器锁存脉冲 */
+        cs-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
+        shifter: 595@0 {
+            compatible = "zmk,gpio-595";
+            status = "okay";
+            gpio-controller;
+            spi-max-frequency = <200000>;
+            reg = <0>;            /* 第 0 个 CS 设备 */
+            #gpio-cells = <2>;
+            ngpios = <8>;         /* QA–QH 共 8 路输出 */
+        };
+    };
+
+    /* 2. 矩阵扫描 driver：行由 74HC595 驱动，列直接由 MCU GPIO 驱动 */
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+
+        /* Rows ← 74HC595 QA-QH */
+        row-gpios = <
+            &shifter 0 GPIO_ACTIVE_HIGH  /* R0 → QA */
+            &shifter 1 GPIO_ACTIVE_HIGH  /* R1 → QB */
+            &shifter 2 GPIO_ACTIVE_HIGH  /* R2 → QC */
+            &shifter 3 GPIO_ACTIVE_HIGH  /* R3 → QD */
+            &shifter 4 GPIO_ACTIVE_HIGH  /* R4 → QE */
+            &shifter 5 GPIO_ACTIVE_HIGH  /* R5 → QF */
+            &shifter 6 GPIO_ACTIVE_HIGH  /* R6 → QG */
+            &shifter 7 GPIO_ACTIVE_HIGH  /* R7 → QH */
+        >;
+
+        /* Columns ← MCU 直接引脚 */
+        col-gpios = <
+            &gpio1 1  GPIO_ACTIVE_HIGH   /* C0 → P1.01 */
+            &gpio1 2  GPIO_ACTIVE_HIGH   /* C1 → P1.02 */
+            &gpio1 7  GPIO_ACTIVE_HIGH   /* C2 → P1.07 */
+            &gpio0 9  GPIO_ACTIVE_HIGH   /* C3 → P0.09 */
+            &gpio0 10 GPIO_ACTIVE_HIGH   /* C4 → P0.10 */
+            &gpio1 11 GPIO_ACTIVE_HIGH   /* C5 → P1.11 */
+            &gpio1 6  GPIO_ACTIVE_HIGH   /* C6 → P1.06 */
+            &gpio1 4  GPIO_ACTIVE_HIGH   /* C7 → P1.04 */
+            &gpio0 11 GPIO_ACTIVE_HIGH   /* C8 → P0.11 */
+            &gpio1 0  GPIO_ACTIVE_HIGH   /* C9 → P1.00 */
+            &gpio0 24 GPIO_ACTIVE_HIGH   /* C10 → P0.24 */
+            &gpio0 22 GPIO_ACTIVE_HIGH   /* C11 → P0.22 */
+            &gpio0 20 GPIO_ACTIVE_HIGH   /* C12 → P0.20 */
+            &gpio0 6  GPIO_ACTIVE_HIGH   /* C13 → P0.06 */
+            &gpio0 17 GPIO_ACTIVE_HIGH   /* C14 → P0.17 */
+            &gpio0 8  GPIO_ACTIVE_HIGH   /* C15 → P0.08 */
+        >;
+    };
+
+    /* 3. 选定上面定义的 kscan0 作为矩阵扫描源 */
+    &chosen {
+        zmk,kscan = <&kscan0>;
+    };
+};

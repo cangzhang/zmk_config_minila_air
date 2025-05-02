@@ -1,0 +1,44 @@
+#include <dt-bindings/zmk/keys.h>
+
+&keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+        display-name = "Base";
+        bindings = <
+
+            /* Row R0 */
+            &kp Q      &kp W      &kp E      &kp R      &kp U      &kp I      &kp O      &kp P
+            &mo 1      &kp GRV    &none      &none      &none      &none      &none      &none
+
+            /* Row R1 */
+            &kp TAB    &kp CAPS   &kp T      &kp Y      &kp RBRC   &kp LBRC   &kp BSPC   &kp LGUI
+            &kp LSFT   &none      &none      &none      &none      &none      &none      &none
+
+            /* Row R2 */
+            &kp A      &kp S      &kp D      &kp F      &kp J      &kp K      &kp L      &kp SCLN
+            &mo 1      &kp RSFT   &none      &none      &none      &none      &none      &none
+
+            /* Row R3 */
+            &kp ESC    &kp G      &kp H      &kp QUOT   &kp LALT   &kp ENTER  &kp SPACE  &kp UP
+            &none      &none      &none      &none      &none      &none      &none      &none
+
+            /* Row R4 */
+            &kp Z      &kp X      &kp C      &kp V      &kp M      &kp COMMA  &kp DOT    &none
+            &none      &none      &none      &none      &none      &none      &none      &none
+
+            /* Row R5 */
+            &kp B      &kp N      &kp SLASH  &kp RALT   &kp DOWN   &kp RIGHT  &kp MENU   &kp LEFT
+            &none      &none      &none      &none      &none      &none      &none      &none
+
+            /* Row R6 */
+            &kp LCTL   &kp BSLASH &kp 5      &kp 6      &kp EQL    &kp MINUS  &none      &none
+            &none      &none      &none      &none      &none      &none      &none      &none
+
+            /* Row R7 */
+            &kp 1      &kp 2      &kp 3      &kp 4      &kp 7      &kp 8      &kp 9      &kp 0
+            &none      &none      &none      &none      &none      &none      &none      &none
+
+        >;
+    };
+};

@@ -1,0 +1,7 @@
+if SHIELD_MINILA
+    config ZMK_KEYBOARD_NAME
+        default "Minila"
+
+    config SPI
+        default y
+endif
