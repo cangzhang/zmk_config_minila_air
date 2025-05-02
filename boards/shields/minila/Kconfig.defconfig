@@ -1,4 +1,0 @@
-if SHIELD_MINILA
-config ZMK_KEYBOARD_NAME
-    default "minila"
-endif
